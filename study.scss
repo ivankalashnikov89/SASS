@@ -7,3 +7,39 @@
 //npm install -g sass
 //npm i -g sass
 
+//HTML
+/*
+    You should compile the scss first if you use 
+    a text editor like VSCODE that is availablr plugin 
+    called LIVE-SASS-COMPILER. You need to install
+    that and click the WATCH SASS.
+                                        */
+
+//VARIABLES
+/* In Sass, variables allow you to store and reuse 
+values throughout your stylesheets. This can be 
+especially helpful for maintaining a consistent 
+design across your web project, as you can define 
+values like colors, fonts, and sizes in one place 
+and then use those variables wherever needed*/
+
+//Defining Variables
+/*In Sass, variables are defined using the $ symbol 
+followed by the variable name and an assignment*/
+$primary-color: #3498db;
+$font-family: "Arial", sans-serif;
+$base-font-size: 16px;
+
+//Using Variables
+/*ou can use variables by referencing them with 
+the $ symbol wherever you would normally use a 
+value in your styles*/
+.header {
+    background-color: $primary-color;
+    font-family: $font-family;
+    font-size: $base-font-size;
+  }
+/*This way, if you ever need to change the primary 
+color or font family, you only have to update 
+the variable value, and it will automatically 
+reflect in all the places where the variable is used*/  
