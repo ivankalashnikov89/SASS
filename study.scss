@@ -43,3 +43,102 @@ value in your styles*/
 color or font family, you only have to update 
 the variable value, and it will automatically 
 reflect in all the places where the variable is used*/  
+
+//Variable Scope
+/*Sass variables have scope within the block where 
+they are defined. If you define a variable within 
+a nested block (like inside a selector or mixin), 
+it will only be accessible within that block and its 
+children*/
+.section {
+    $section-background: #f0f0f0;
+  
+    .content {
+      background-color: $section-background; // Accessible here
+    }
+  }
+  
+  .footer {
+    background-color: $section-background; // Error: $section-background is not defined here
+  }
+
+//Global Variables
+/*To create global variables that are accessible 
+throughout your entire stylesheet, define them outside 
+of any selector or block*/
+$global-variable: #999;
+
+.element {
+  color: $global-variable; // Accessible here
+}
+
+//Variable Interpolation
+/*You can also interpolate variables within strings 
+using #{$variable}:*/
+$namespace: "my-app";
+
+.#{$namespace}-button {
+  background-color: $primary-color;
+}
+
+
+//MAPS
+/*In Sass, maps are data structures that allow you 
+to store key-value pairs, where each key is associated 
+with a corresponding value. Sass maps are a powerful 
+feature that can help you manage and organize data 
+efficiently, making your stylesheets more maintainable 
+and dynamic*/  
+
+//Defining Sass Maps
+/*You can define a Sass map using the () notation with 
+key-value pairs separated by : and comma-separated pairs*/
+$colors: (
+  primary: #3498db,
+  secondary: #e74c3c,
+  success: #2ecc71,
+);
+
+//Accessing Values in Sass Maps
+/*You can access values in a Sass map using the 
+map-get() function and providing the map and the 
+key as arguments:*/
+.button-primary {
+    background-color: map-get($colors, primary);
+  }
+
+//Iterating Over Sass Maps
+/*You can loop through the keys and values of a 
+Sass map using the map-keys() and map-values() functions*/
+@each $key in map-keys($colors) {
+    .#{$key}-button {
+      background-color: map-get($colors, $key);
+    }
+  }
+
+//Modifying Sass Maps
+/*While Sass maps are immutable, you can create new maps 
+by combining or modifying existing ones using functions 
+like map-merge()*/
+$newColors: map-merge($colors, (info: #3498db));
+
+//Nesting Sass Maps
+$theme: (
+  colors: (
+    primary: #3498db,
+    secondary: #e74c3c,
+  ),
+  fonts: (
+    heading: "Arial", sans-serif,
+    body: "Helvetica", sans-serif,
+  ),
+);
+
+.header {
+  font-family: map-get(map-get($theme, fonts), heading);
+  background-color: map-get(map-get($theme, colors), primary);
+}
+
+
+
+//NESTING
