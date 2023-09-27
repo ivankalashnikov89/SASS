@@ -142,3 +142,109 @@ $theme: (
 
 
 //NESTING
+/*In Sass, nesting is a feature that allows you 
+to write nested selectors and properties within 
+other selectors. This feature can make your Sass 
+code more organized and easier to read, as it 
+reflects the hierarchical structure of your HTML 
+or component markup*/
+
+//Basic Nesting
+/*In Sass, you can nest selectors and properties 
+within other selectors. This is similar to how HTML 
+elements are nested in your markup.*/
+.container {
+    width: 100%;
+  
+    .header {
+      background-color: #3498db;
+      color: #ffffff;
+    }
+  
+    .content {
+      padding: 20px;
+    }
+  }
+
+//Combining Selectors
+/*You can combine selectors within a single 
+nesting block. This is useful when you want 
+to apply styles to elements that share multiple 
+classes*/
+.button, .link {
+    color: #3498db;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+//Pseudo-selectors and Pseudo-classes
+/*ou can use nesting to define pseudo-selectors 
+and pseudo-classes within a selector block*/
+.button {
+    &:hover {
+      background-color: #3498db;
+    }
+  
+    &::before {
+      content: "\f101";
+      font-family: FontAwesome;
+    }
+  }
+
+//Nesting Media Queries
+/*You can also nest media queries to keep 
+responsive styles organized.*/
+.container {
+    width: 100%;
+  
+    @media screen and (max-width: 768px) {
+      width: 90%;
+    }
+  }
+
+//Nesting Combinatin with Variables
+/*Nesting works well with Sass variables. 
+You can use variables to store values and 
+apply them within nested selectors*/
+$primary-color: #3498db;
+
+.button {
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+
+
+//PARTIALS
+/*
+   When our project is large we can use separate 
+    .scss files (partials).
+   The name of partials should start with 
+   underscore: _name.scss
+   Then we should impoer this file(partial) in
+   main.scss: 
+            @import "._name";
+                                        */
+
+//Create a Partial:
+// _variables.scss
+$primary-color: #3498db;
+$font-family: "Arial", sans-serif;
+
+//Import a Partial
+// main.scss
+@import 'variables';
+
+.header {
+  background-color: $primary-color;
+  font-family: $font-family;
+}
+
+
+
+//FUNCTIONS
