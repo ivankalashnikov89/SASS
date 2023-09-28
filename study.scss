@@ -248,7 +248,25 @@ $font-family: "Arial", sans-serif;
 
 
 //FUNCTIONS
+/*
+    Sass (Syntactically Awesome Style Sheets) is a 
+    preprocessor scripting language that is used to 
+    extend the capabilities of CSS (Cascading Style 
+    Sheets). One of the powerful features of Sass is 
+    its ability to define and use functions. Sass 
+    functions allow you to encapsulate logic and 
+    calculations within your stylesheets, making it 
+    easier to maintain and reuse code
+                                            */
 
+//Defining a Functiom 
+/*You can define a Sass function using the @function 
+directive. Here's a basic example of a Sass function 
+that calculates the sum of two numbers:*/
+@function add($a, $b) {
+    @return $a + $b;
+  }
+  
 
 
 //MIXINS
