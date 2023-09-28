@@ -267,6 +267,24 @@ that calculates the sum of two numbers:*/
     @return $a + $b;
   }
   
+//Using a Function
+$result : add(5, 3); // $result will be 8
+//$result = add(5, 3); // $result will be 8
+
+//Returning Values
+/*Inside a Sass function, you use the @return directive 
+to specify the value that the function should return. 
+In the example above, the add function returns the sum 
+of its two arguments.*/
+
+//Parameters
+/*Functions can take one or more parameters. In the add 
+function example, it takes two parameters, $a and $b. 
+You can use these parameters within the function to 
+perform calculations.*/
+
+
+
 
 
 //MIXINS
