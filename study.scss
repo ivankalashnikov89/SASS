@@ -248,3 +248,118 @@ $font-family: "Arial", sans-serif;
 
 
 //FUNCTIONS
+
+
+
+//MIXINS
+/*Sass mixins are a powerful feature that 
+allows you to define reusable blocks of CSS 
+code that can be included in your stylesheets. 
+They are similar to functions in other programming 
+languages, as they accept parameters, perform 
+actions, and can be called multiple times with 
+different arguments. Mixins are particularly 
+useful for applying consistent styling and avoiding 
+code duplication*/
+
+//Defining Mixins
+/*To define a mixin in Sass, you use the @mixin 
+directive followed by the mixin's name and a set 
+of parameters enclosed in parentheses. Inside 
+the mixin block, you write the CSS code that you 
+want to reuse*/
+@mixin button($background, $color) {
+    background-color: $background;
+    color: $color;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+  }
+
+//Including Mixins
+/*To use a mixin in your Sass code, you use the @include 
+directive followed by the mixin's name and the values 
+for its parameters*/
+.primary-button {
+    @include button(#3498db, #ffffff);
+  }
+
+
+
+//EXTEND
+/*
+    In Sass, the @extend directive is used to share 
+    styles between selectors by extending one selector 
+    with the styles of another. This allows you to keep 
+    your CSS DRY (Don't Repeat Yourself) by reusing 
+    styles for multiple selectors without duplicating 
+    code.                                
+                                        */
+
+//Defining Placeholder Selectors
+/*To use @extend, you first define a placeholder selector 
+(also known as a silent selector) using the % symbol 
+followed by the selector name. Placeholder selectors are 
+not compiled to CSS unless they are extended. They serve 
+as templates for sharing styles.*/
+%base-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+  }
+
+//Extending selectors
+/*To apply the styles defined in a placeholder selector 
+to another selector, you use the @extend directive 
+followed by the placeholder selector.*/
+.primary-button {
+    @extend %base-button;
+    background-color: #3498db;
+    color: #ffffff;
+  }
+  
+  .secondary-button {
+    @extend %base-button;
+    background-color: #e74c3c;
+    color: #ffffff;
+  }
+
+//Nesting Selectors
+/*You can also nest @extend directives within a selector, 
+allowing you to extend multiple placeholder selectors in 
+one rule*/
+.special-button {
+    @extend %base-button;
+    @extend %another-placeholder;
+    background-color: #FFA500;
+  }
+
+//Chaining Selectors
+/*You can chain @extend directives together in a single 
+rule to extend multiple selectors with the same styles.*/
+.primary-button {
+    @extend %button-base;
+    @extend %button-hover;
+  }
+
+//Media Queries and Extends
+%responsive-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .mobile-button {
+      @extend %responsive-button;
+      font-size: 14px;
+    }
+  }
+
+//Extending Multiple Selectors
+.primary-button, .info-button {
+    @extend %base-button;
+    background-color: #3498db;
+    color: #ffffff;
+  }
+  
