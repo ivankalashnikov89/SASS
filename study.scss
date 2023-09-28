@@ -283,6 +283,32 @@ function example, it takes two parameters, $a and $b.
 You can use these parameters within the function to 
 perform calculations.*/
 
+//Built-in Functions
+/*Sass also provides many built-in functions for common 
+operations, such as math calculations, color manipulation, 
+string manipulation, and more. For example, you can use 
+rgb() to create a color or percentage() to convert a 
+decimal number to a percentage.*/
+$color : rgb(255, 0, 0); // Creates a red color
+$percent : percentage(0.5); // Converts 0.5 to 50%
+//$color = rgb(255, 0, 0); // Creates a red color
+//$percent = percentage(0.5); // Converts 0.5 to 50%
+
+//Custom Functions
+/*You can create your own custom functions to perform 
+specific tasks or calculations that are relevant to your 
+project. This allows you to encapsulate complex logic 
+and reuse it throughout your stylesheets*/
+@function calculateBoxWidth($width, $margin) {
+    $totalMargin : $margin * 2;
+    //$totalMargin = $margin * 2;
+    @return $width + $totalMargin;
+  }
+  
+  .box {
+    width: calculateBoxWidth(200px, 20px); // This will result in a width of 240px
+  }
+  
 
 
 
