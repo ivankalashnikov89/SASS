@@ -422,3 +422,15 @@ rule to extend multiple selectors with the same styles.*/
     color: #ffffff;
   }
   
+  
+
+//OPERATORS
+/*Sass supports several operators that you can use 
+to perform mathematical calculations and manipulate 
+values within your stylesheets. These operators make 
+it easier to work with numeric values, such as numbers,
+percentages, and colors*/
+
+//Addition (+):
+$sum: 10 + 5; // $sum will be 15
+
