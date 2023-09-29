@@ -442,3 +442,12 @@ $product: 6 * 4; // $product will be 24
 
 //Division (/): 
 $quotient: 48 / 3; // $quotient will be 16
+
+//Modulus (%): 
+$remainder: 15 % 4; // $remainder will be 3
+
+//Negation (-): 
+$negativeValue: -10; // $negativeValue will be -10
+
+//Exponentiation ()**: 
+$result: 2 ** 3; // $result will be 8 (2^3)
